@@ -11,7 +11,6 @@ public class M1065 {
         int count = 0;
         int total = 0;
         float d;
-        int same = 0;
 
         //정수 입력
         n = Integer.parseInt(bf.readLine());
@@ -26,7 +25,6 @@ public class M1065 {
                     total /= 10;
                 }
                 d = ((num[0] - num[2]) / 2.0F);
-                same = (int) d;
 
                 if(num[1] + d == num[0]) {
                     count++;
