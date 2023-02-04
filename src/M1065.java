@@ -7,39 +7,31 @@ public class M1065 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int n = 0;
-        int sum = 0;
-        int i = 1;
+        int[] num = new int[3];
         int count = 0;
+        int total = 0;
+        float d;
+        int same = 0;
 
         //정수 입력
         n = Integer.parseInt(bf.readLine());
-        
-        //정수가 1일 때
-        if(n == 1)      count = 1;
 
-        //정수가 1보다 클 때
-        if(n > 1) {
-            while(true) {
-                sum = sum + i;
-                if(sum == n) {
+        //한수 구하기
+        for(int i = 1;i <= n;i++) {
+            if(i < 100)        count++;
+            if(i >= 100) {
+                total = i;
+                for(int j = 0;j < 3;j++) {
+                    num[j] = total % 10;
+                    total /= 10;
+                }
+                d = ((num[0] - num[2]) / 2.0F);
+                same = (int) d;
+
+                if(num[1] + d == num[0]) {
                     count++;
-                    i++;
-                    sum = 0;
                 }
-                else if(sum > n){
-                    i++;
-                    sum = 0;
-                    continue;
-                }
-                else {
-                    i++;
-                    sum = 0;
-                    continue;
-                }
-
-                if(i > n) {
-                    break;
-                }
+                if(i == 1000) count -= 1;
             }
         }
 
