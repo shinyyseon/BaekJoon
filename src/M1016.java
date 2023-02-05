@@ -9,20 +9,28 @@ public class M1016 {
         StringTokenizer st = new StringTokenizer(bf.readLine());
 
         long count = 0, result = 0, total = 0;
+        long check = 0;
         long min = Long.parseLong(st.nextToken());
         long max = Long.parseLong(st.nextToken());
+        long[] prime = new long[(int) (min + 1000000)];
 
-        //제곱ㄴㄴ 수 구하기
-        for(long temp = min;temp <= max;temp++) {
-            for(long i = 2, square = i * i;square < max;i++){
-                square = i * i;
-                if(square > max) break;
-                if(temp % square == 0)  count++;
-            }
-            if(count > 0) result++;
-            total++;
-            count = 0;
+        //소수 구하기
+        for(long i = 2, index = 0;i<=max;i++) {
+            for(long j = 2;j<=i;j++)
+                if(i%j == 0)      check ++;
+            if(check == 1)        prime[(int) index] = i;
+            check = 0;
+            index++;
         }
-        System.out.print(total - result);
+
+        for( ;min <= max;min++){
+            for(long i : prime) {
+                result = min % prime[(int) i];
+                if (result == 0) count++;
+                total++;
+            }
+        }
+
+        System.out.print(total - count);
     }
 }
