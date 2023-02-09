@@ -6,10 +6,10 @@ import java.io.InputStreamReader;
 public class M1065 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        int n = 0;
+        int n;
         int[] num = new int[3];
         int count = 0;
-        int total = 0;
+        int total;
         float d;
 
         //정수 입력

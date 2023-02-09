@@ -7,7 +7,7 @@ public class M1076 {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         String[] resistance = new String[3];
         long[] result = new long[3];
-        long total = 0;
+        long total;
 
         for(int i = 0;i < 3;i++) {
             resistance[i] = bf.readLine();
