@@ -9,40 +9,51 @@ public class M1016 {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(bf.readLine());
 
-        long check = 0, count = 0;
+        long count = 0;
         long min = Long.parseLong(st.nextToken());
         long max = Long.parseLong(st.nextToken());
         boolean[] num = new boolean[Math.toIntExact((max + 1))];
-        Arrays.fill(num, false);
+        Arrays.fill(num, true);
 
-        //제곱ㄴㄴ 수 구하기
-        if(min >= 1 && max >= min) {
-            for(long i = 2;i <= max;i++) {
-                for(long j = 2;j <= i;j++)
-                    if(i % j == 0)      check ++;
-                if(check == 1) {
-                    for(long temp = min;temp <= max;temp++) {
-                        if(temp % (i * i) == 0) {
-                            if(!(num[(int) temp - 1])) {
-                                num[(int) temp - 1] = true;
-                            }
+        for(long i = min;i <= max;i++) {
+            long sqrt = (long) Math.sqrt(i);
+            //제곱ㄴㄴ수 판별
+            if(sqrt == 1) {
+                if(!(num[(int) i - 1])) {
+                    num[(int) i - 1] = true;
+                }
+            }
+            else {
+                for(long temp = i;temp <= max;temp++) {
+                    if(temp % (sqrt * sqrt) == 0) {
+                        if(num[(int) temp - 1]) {
+                            num[(int) temp - 1] = false;
+                        }
+                    }
+                    else {
+                        if(num[(int) temp - 1]) {
+                            //제곱ㄴㄴ 수
+                            num[(int) temp - 1] = true;
                         }
                     }
                 }
-                check = 0;
             }
-
-            for( ;min <= max;min++) {
-                if(min == max) {
-                    if(!(num[(int) min - 1])){
-                        count++;
-                    }
-                }
-                else {
-                    if(!(num[(int) min])) count++;
-                }
-            }
-            System.out.print(count);
         }
+
+        for( ;min <= max;min++) {
+            if(min == max) {
+                if(num[(int) min - 1]){
+                    count++;
+                    System.out.println(min);
+                }
+            }
+            else {
+                if(num[(int) min - 1]){
+                    count++;
+                    System.out.println(min);
+                }
+            }
+        }
+        System.out.print(count);
     }
 }
