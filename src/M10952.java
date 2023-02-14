@@ -18,5 +18,4 @@ public class M10952 {
         }
     }
 }
-//test123456
-//test1
+//정신을 차리자
