@@ -11,21 +11,18 @@ public class M2798 {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
         String[] num = bf.readLine().split(" ");
-        int result = 0;
+        int sum, result = 0, max = 0;
 
-        for (int i = 0; i < n - 2; i++) {
-            for (int j = 0; j < n - 1; j++) {
-                for (int k = 0; k < n; k++) {
-                    int temp = Integer.parseInt(num[i]) + Integer.parseInt(num[j]) + Integer.parseInt(num[k]);
-
-                    if (temp == m) {
-                        result = temp;
-                        break;
-                    }
-                    if (temp < m && result < temp) result = temp;
+        for(int i = 0;i < n;i++) {
+            for(int j = 1;j < n;j++) {
+                for(int k = 2;k < n;k++) {
+                    if(num[i].equals(num[j]) || num[j].equals(num[k]) || num[i].equals(num[k])) continue;
+                    sum = Integer.parseInt(num[i]) + Integer.parseInt(num[j]) + Integer.parseInt(num[k]);
+                    if(sum <= m)        max = sum;
+                    if(result < max)    result = max;
                 }
             }
         }
-        System.out.println(result);
+        System.out.print(result);
     }
 }
