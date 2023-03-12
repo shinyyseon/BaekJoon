@@ -25,10 +25,9 @@ public class M1978 {
             }
         }
 
-        for(int i = 0;i < array.length;i++) {
-            if(Integer.parseInt(array[i]) != 0) {
+        for(String i : array) {
+            if(Integer.parseInt(i) != 0)
                 result++;
-            }
         }
 
         System.out.print(result);
