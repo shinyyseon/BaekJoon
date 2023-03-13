@@ -30,4 +30,3 @@ public class M10814 {
             System.out.println(array[i][0] +" "+ array[i][1]);
     }
 }
-//test

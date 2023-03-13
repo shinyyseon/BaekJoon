@@ -20,14 +20,11 @@ public class M1978 {
                 if(Integer.parseInt(array[i]) % j == 0)
                     count++;
             }
-            if(count > 1)   {
-                array[i] = "0";
-            }
+            if(count > 1)                   array[i] = "0";
         }
 
         for(String i : array) {
-            if(Integer.parseInt(i) != 0)
-                result++;
+            if(Integer.parseInt(i) != 0)    result++;
         }
 
         System.out.print(result);
