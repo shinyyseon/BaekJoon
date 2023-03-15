@@ -23,11 +23,11 @@ public class M1920 {
                     sb.append("1").append("\n");
                     break;
                 }
-                else if(Integer.parseInt(A[i]) > Integer.parseInt(array[j])) {
+                else if(Integer.parseInt(A[j]) > Integer.parseInt(array[i])) {
                     count++;
                     break;
                 }
-                if(count > 1) {
+                if(count == M) {
                     sb.append("0").append("\n");
                 }
             }
