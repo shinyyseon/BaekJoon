@@ -6,22 +6,35 @@ import java.util.Arrays;
 public class M1920 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
         int N = Integer.parseInt(bf.readLine());
+        int[] array = new int[N];
         String[] A = bf.readLine().split(" ");
-        Arrays.sort(A);
 
-        int M = Integer.parseInt(bf.readLine());
-        String[] array = bf.readLine().split(" ");
+        for(int i = 0;i < N;i++)
+            array[i] = Integer.parseInt(A[i]);
+
         Arrays.sort(array);
 
-        for(int i = 0;i < N;i++) {
-            int count = 0;
+        int M = Integer.parseInt(bf.readLine());
+        String[] x = bf.readLine().split(" ");
 
+        for(int i = 0;i < M;i++) {
+            int target = Integer.parseInt(x[i]);
+            int result = 0;
+            int start = 0, end = N - 1;
+            while (start <= end) {
+                int mid = (start + end) / 2;
+                if(array[mid] == target) {
+                    result = 1;
+                    break;
+                }
+                else if(array[mid] < target)
+                    start = mid + 1;
+                else
+                    end = mid - 1;
+            }
+            System.out.println(result);
         }
-        System.out.print(sb);
     }
 }
-/**/
-//
