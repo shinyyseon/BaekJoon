@@ -20,7 +20,6 @@ public class M10814 {
         }
 
         Arrays.sort(array, new Comparator<String[]>() {
-            @Override
             public int compare(String[] s1, String[] s2) {
                 return Integer.parseInt(s1[0]) - Integer.parseInt(s2[0]);
             }
