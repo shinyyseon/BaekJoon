@@ -4,10 +4,10 @@ import java.util.Arrays;
 public class M11723 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder(); // 출력 버퍼
+        StringBuilder sb = new StringBuilder();
 
         int N = Integer.parseInt(br.readLine());
-        boolean[] S = new boolean[21]; // 1~20만 사용
+        boolean[] S = new boolean[21];
 
         for (int i = 0; i < N; i++) {
             String[] input = br.readLine().split(" ");
